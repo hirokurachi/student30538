@@ -457,4 +457,6 @@ After you are done, here are some cosmetic suggestions:
 * Putting it all together `geo.plot(ax = austin, alpha=0.5)`
     - This plots the `geo` object with 50% transparency, on top of axes based on the `austin` object
 
+```{python}
 
+```
