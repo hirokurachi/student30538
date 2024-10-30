@@ -189,6 +189,7 @@ type(point.coords)
 list(point.coords)
 ```
 
+MEMO: different from WKT, this is easier to understand for computers.
 
 ## `Point`: extraction methods
 
@@ -317,9 +318,32 @@ poly_with_hole
 ## Do-pair-Share
 
 1.  Create a triangle
-2.  Create a square
-3.  Create a circle (hint: look up the `buffer` method in `shapely`)
+```{python}
+exterior_tri = [(-60,0), (60, 0), (0, 80)]
+poly_tri = Polygon(shell = exterior_tri)
 
+poly_tri
+```
+
+2.  Create a square
+```{python}
+exterior_sq = [(-60,0), (0, -60), (60, 0), (0, 60)]
+poly_sq = Polygon(shell = exterior_sq)
+
+poly_sq
+```
+
+3.  Create a circle (hint: look up the `buffer` method in `shapely`)
+```{python}
+point = Point(0, 0)
+point_buffer = point.buffer(10)
+
+point_buffer
+
+poly_sq_buffer = poly_sq.buffer(10)
+
+poly_sq_buffer
+```
 
 ## geo data in vectors: summary
 
