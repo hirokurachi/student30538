@@ -259,7 +259,7 @@ for i in range(50):
 ```{python}
 #| echo : true
 #| eval: false 
-visited_urls[]
+visited_urls = []
 for i in range(50):
     # code to crawl here 
     if url in visited_urls:
@@ -270,7 +270,7 @@ for i in range(50):
         break
     visited_urls.append(url)
 ```
-- Initialize an empty list: `visited_urls[]`
+- Initialize an empty list: `visited_urls = []`
 - `break` if the url we extract has already been visited
 - If none of the conditions to `break` are true, then add this url to `visited_urls`
 
@@ -361,13 +361,24 @@ Recall that the steps of building a webscraper are:
 ## **Exercise**
 1. Go to the Tanzania National Examination outcomes ([link](https://maktaba.tetea.org/exam-results/FTNA2015/S0101.htm))
 2. Familiarize with the web page and table -- **what is the unit of observation**? 
+
+    - for each student
+
+    - grades for each subject
+
 3. From looking at the table, **name a detail** about the structure and layout of the table that you anticipate could make scraping difficult
+
+    - column is listed in vertical format, with separated 
+
+    - absent, occupy whole columns
+
+    - background is also made by td
 
 . . .
 
 4. Right click over one of the observations and "Inspect" it: **what tag(s) does the data appear to be stored in**?
 
-
+    - table, tbody, tr, td
 
 ## Step 0. Inspect website and HTML
 :::: {.columns}
