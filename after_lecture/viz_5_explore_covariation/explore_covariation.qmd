@@ -19,8 +19,8 @@ engine: jupyter
 #| warning: false
 import altair as alt
 from vega_datasets import data
-from palmerpenguins import load_penguins
-penguins = load_penguins()
+# from palmerpenguins import load_penguins
+# penguins = load_penguins()
 from plotnine import *
 from plotnine.data import diamonds, mpg
 import pandas as pd
@@ -50,8 +50,9 @@ Explore penguin `color` (continuous) vs. `cut` (categorical)
 (no summary at the end of this section)
 
 ```{python}
-from palmerpenguins import load_penguins
-penguins = load_penguins()
+# from palmerpenguins import load_penguins
+# penguins = load_penguins()
+penguins = pd.read_csv(r"data\penguins.csv")
 display(penguins)
 ```
 
@@ -295,6 +296,29 @@ We are now going to transition from making plots to teach **ourselves** to makin
 Are penguins getting heavier (`body_mass_g`) over time? 
 
 Bonus: what is the headline of your plot and what are the sub-messages?
+
+```{python}
+alt.Chart(penguins).mark_boxplot().encode(
+    alt.X("sex:N"),
+    alt.Y("body_mass_g:Q")
+)
+
+alt.Chart(penguins).mark_bar().encode(
+    alt.X("sex:N"),
+    alt.Y("body_mass_g:Q"),
+    alt.Color("species:N")
+)
+
+alt.Chart(penguins).transform_density(
+    "body_mass_g",
+    groupby=["sex"],
+    as_=["body_mass_g:Q", "density"]
+).mark_line().encode(
+    alt.X("sex:N"),
+    alt.Y("body_mass_g:Q")
+)
+
+```
 
 <!-- ZZZ delete before posting -->
 ## Do-pair-share solution I

@@ -145,6 +145,7 @@ point.wkt    #gets WKT directly
 
 point3D = Point(9.26, -2.456, 0.57)
 print(point3D)
+point3D.wkt
 ```
 
 * `WKT` gives you a plaintext representation of where the point is. 
@@ -315,6 +316,22 @@ poly_with_hole
 
 
 ## Do-pair-Share
+
+```{python}
+from shapely import Point, LineString, Polygon
+
+exterior = [(-3, 0), (3, 0), (0, 4)]
+
+tri = Polygon(shell = exterior)
+tri
+
+square = Polygon([(1, 0), (-1, 0), (-1, 1), (1, 1)])
+square
+
+center = Point(0, 0)
+circle = center.buffer(5)
+circle
+```
 
 1.  Create a triangle
 ```{python}

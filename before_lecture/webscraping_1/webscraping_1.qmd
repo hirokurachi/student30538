@@ -329,7 +329,7 @@ print(soup)
 - `.find_all()`: searches for and returns list of *all* elements with a given tag
 ```{python}
 #| echo: true
-soup.find_all('p')
+result = soup.find_all('p')
 ```
 
 . . .

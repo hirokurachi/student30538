@@ -234,6 +234,17 @@ Hint: if you aren't sure how to aggregate the x-variable, go back to the first v
 3. *Share* -- discuss results as a class
 
 
+```{python}
+alt.Chart(movies_url).transform_calculate(
+    Release_Year = "year(datum.Release_Date)"
+).transform_filter(
+    "datum.Release_Year < 2025"
+).mark_area().encode(
+    alt.X('month(Release_Date):T'),
+    alt.Y('average(US_Gross):Q')
+)
+```
+
 <!-- ZZZ: delete before posting -->
 ##  do-pair-share solution: option 1
 
@@ -358,6 +369,28 @@ alt.Chart(movies_url).mark_circle().encode(
     - Append together two plots side by side: a scatter plot of ratings before 1970 and after 1970
 - Which do you prefer and why?
 
+```{python}
+alt.Chart(movies_url).mark_circle().transform_calculate(
+    pre1970 = 'year(datum.Release_Date) < 1970'
+).encode(
+    alt.X('Rotten_Tomatoes_Rating:Q'),
+    alt.Y('IMDB_Rating:Q'),
+    alt.Color("pre1970:N")
+)
+
+chart_pre = alt.Chart(movies_url).mark_circle().encode(
+    alt.X('Rotten_Tomatoes_Rating:Q'),
+    alt.Y('IMDB_Rating:Q')
+).transform_filter('year(datum.Release_Date) < 1970')
+
+chart_post = alt.Chart(movies_url).mark_circle().encode(
+    alt.X('Rotten_Tomatoes_Rating:Q'),
+    alt.Y('IMDB_Rating:Q')
+).transform_filter('year(datum.Release_Date) >= 1970')
+
+chart_pre | chart_post
+
+```
 
 <!-- ZZZ delete solution below -->
 ## Do-pair-share solution

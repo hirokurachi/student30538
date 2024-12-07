@@ -85,8 +85,8 @@ Why did we choose Altair and not one of these?
 
 ## Installation
 ```{bash}
-pip install altair
-pip install vega_datasets
+# pip install altair
+# pip install vega_datasets
 ```
 
 <!-- PG to SSS/GGG a huge number of students thought that this was a command that they run in th python interpreter rather than a command that they run at the terminal. need more detail/explanation.-->
@@ -326,6 +326,13 @@ Make a bar plot showing the **lowest** rainfall for each city in the dataset.
 Hint: Altair's aggregation methods are [here](https://altair-viz.github.io/user_guide/encodings/index.html#aggregation-functions)
 
 
+```{python}
+alt.Chart(df).mark_bar().encode(
+  alt.X('min(precip)', title='Minimum amount of rainfall'),
+  alt.Y('city', axis=alt.Axis(title='City')),
+)
+```
+
 ## Data Transformation: Do-pair-share solution
 
 Make a bar plot showing the **lowest** rainfall for each city in the dataset
@@ -506,7 +513,17 @@ chart.get("datasets")
 1. extract `chart`'s encoding.
 2. extract just the encoding for `x`
 
+```{python}
+chart = alt.Chart(df).mark_point().encode(
+    alt.X('average(precip)'),
+    alt.Y('city')
+)
+chart_as_string = chart.to_json()
+chart = json.loads(chart_as_string)
 
+chart.keys()
+chart.get("encoding").get("x")
+```
 
 
 ## in-class exercise: solution

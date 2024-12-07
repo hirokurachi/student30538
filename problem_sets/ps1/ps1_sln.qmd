@@ -38,46 +38,46 @@ page has all of the articles that ProPublica has done on this topic.
 
 1.  To help you get started, we pushed a file to the course repo called `parking_tickets_one_percent.csv` which gives you a one percent sample of tickets. We constructed the sample by selecting ticket numbers that end in `01`. How long does it take to read in this file?  (Find a function to measure how long it takes the command to run. Note that everytime you run, there will be some difference in how long the code takes to run). Add an `assert` statement which verifies that there are 287458 rows.
 
-    ```{python}
-    import pandas as pd
-    import time
-    import warnings
-    warnings.filterwarnings('ignore')
+```{python}
+import pandas as pd
+import time
+import warnings
+warnings.filterwarnings('ignore')
 
-    def read_parking_tickets(file_path):
-        start_time = time.time()
-        df = pd.read_csv(file_path)
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        assert len(df) == 287458, "The number of rows is not as expected."
-        print(f"Time taken to read the file: {elapsed_time:.2f} seconds")
-        return df
+def read_parking_tickets(file_path):
+    start_time = time.time()
+    df = pd.read_csv(file_path)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    assert len(df) == 287458, "The number of rows is not as expected."
+    print(f"Time taken to read the file: {elapsed_time:.2f} seconds")
+    return df
 
-    # Example usage
-    file_path = 'data/parking_tickets_one_percent.csv'
-    df = read_parking_tickets(file_path)
-    ```
+# Example usage
+file_path = 'data/parking_tickets_one_percent.csv'
+df = read_parking_tickets(file_path)
+```
 
 1. Using a function in the `os` library calculate how many megabytes is the CSV file? Using math, how large would you predict the full data set is?  
 
 ```{python}
 #| message: false
-    import os
-    def get_file_size(file_path):
-        file_size = os.path.getsize(file_path) / (1024 * 1024)  # Convert bytes to megabytes
-        return file_size
-    def get_file_size_mb(file_path):
-        file_size_bytes = os.path.getsize(file_path)
+import os
+def get_file_size(file_path):
+    file_size = os.path.getsize(file_path) / (1024 * 1024)  # Convert bytes to megabytes
+    return file_size
+def get_file_size_mb(file_path):
+    file_size_bytes = os.path.getsize(file_path)
 
 
-    # Example usage
-    file_size = get_file_size(file_path)
-    print(f"File size: {file_size:.2f} MB")
+# Example usage
+file_size = get_file_size(file_path)
+print(f"File size: {file_size:.2f} MB")
 
-    # Predict the full dataset size
-    one_percent_size = file_size
-    full_dataset_size = one_percent_size * 100
-    print(f"Predicted full dataset size: {full_dataset_size:.2f} MB")
+# Predict the full dataset size
+one_percent_size = file_size
+full_dataset_size = one_percent_size * 100
+print(f"Predicted full dataset size: {full_dataset_size:.2f} MB")
 ```
 
 3.  The rows on the dataset are ordered or sorted by a certain column by default. Which column? Then, subset the dataset to the first 500 rows and write a function that tests if the column is ordered. 

@@ -8,10 +8,10 @@
 <link href="minilab_3_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="minilab_3_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="minilab_3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Andre Oviedo Mendoza">
-  <meta name="dcterms.date" content="2024-10-16">
+  <meta name="dcterms.date" content="2024-11-22">
   <title>Minilab 3: Code style (in Python with VSCode)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -403,7 +403,7 @@ Andre Oviedo Mendoza
 </div>
 </div>
 
-  <p class="date">October 16, 2024</p>
+  <p class="date">November 22, 2024</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Agenda</h2>
@@ -459,7 +459,7 @@ Andre Oviedo Mendoza
 </section>
 <section id="bad-style" class="slide level2">
 <h2>Bad Style</h2>
-<div id="117995a6" class="cell" data-execution_count="1">
+<div id="156bb4c2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># Incorrect indentation (should be 4 spaces)</span></span>
 <span id="cb2-2"><a href=""></a><span class="kw">def</span> bad_indentation():</span>
 <span id="cb2-3"><a href=""></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
@@ -483,7 +483,7 @@ Andre Oviedo Mendoza
 </section>
 <section class="slide level2">
 
-<div id="2d5fe956" class="cell" data-execution_count="2">
+<div id="5d87d4c5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">class</span> myclass:</span>
 <span id="cb3-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,a,b):</span>
 <span id="cb3-3"><a href=""></a>        <span class="va">self</span>.a<span class="op">=</span>a</span>
@@ -500,7 +500,7 @@ Andre Oviedo Mendoza
 </section>
 <section id="good-style" class="slide level2">
 <h2>Good Style</h2>
-<div id="3a527f2f" class="cell" data-execution_count="3">
+<div id="43cf123c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="kw">def</span> calculate_average(numbers):</span>
 <span id="cb4-2"><a href=""></a>    <span class="co">"""Calculate the average of a list of numbers."""</span></span>
 <span id="cb4-3"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> numbers:</span>
@@ -517,7 +517,7 @@ Andre Oviedo Mendoza
 </section>
 <section class="slide level2">
 
-<div id="d1a5fae8" class="cell" data-execution_count="4">
+<div id="6688e53f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="kw">class</span> Rectangle:</span>
 <span id="cb5-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, width, height):</span>
 <span id="cb5-3"><a href=""></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
@@ -547,7 +547,7 @@ Andre Oviedo Mendoza
 </section>
 <section class="slide level2">
 
-<div id="c685fe39" class="cell" data-execution_count="5">
+<div id="b05fb94b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># Short but unclear</span></span>
 <span id="cb6-2"><a href=""></a>n <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb6-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> u:</span>
@@ -629,14 +629,14 @@ Andre Oviedo Mendoza
 <section id="fixing-bad-style-example-1-with-autopep8" class="slide level2">
 <h2>Fixing Bad Style Example 1 with autopep8</h2>
 <p>Before:</p>
-<div id="79f50056" class="cell" data-execution_count="6">
+<div id="666816c4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="kw">def</span> f(x):</span>
 <span id="cb9-2"><a href=""></a> y<span class="op">=</span>x<span class="op">*</span><span class="dv">2</span></span>
 <span id="cb9-3"><a href=""></a> z<span class="op">=</span>y<span class="op">+</span><span class="dv">1</span></span>
 <span id="cb9-4"><a href=""></a> <span class="cf">return</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After:</p>
-<div id="5e775e1d" class="cell" data-execution_count="7">
+<div id="6851f081" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="kw">def</span> f(x):</span>
 <span id="cb10-2"><a href=""></a>    y <span class="op">=</span> x<span class="op">*</span><span class="dv">2</span></span>
 <span id="cb10-3"><a href=""></a>    z <span class="op">=</span> y<span class="op">+</span><span class="dv">1</span></span>
@@ -932,18 +932,7 @@ Andre Oviedo Mendoza
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -975,7 +964,29 @@ Andre Oviedo Mendoza
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -983,7 +994,7 @@ Andre Oviedo Mendoza
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

@@ -328,7 +328,7 @@ We can also retrieve the corner coordinates of the bounding box for a `GeoDataFr
 
 \small
 ```{python}
-data.total_bounds
+data.bounds.plot()
 ```
 \normalsize
 
@@ -456,6 +456,16 @@ Steps
     - Hint: you can use standard `pandas` commands to subset 
 2. Create a new geometry object called `geo`, which is the dense areas with a 500m buffer around them
 3. Plot your new geometry object `geo.plot()` 
+
+```{python}
+dense = dissolved[dissolved["dense"]==1]
+geo = dense.buffer(500)
+
+austin = dissolved.plot(facecolor="grey")
+
+dense_zone = geo.plot(ax=austin, alpha=0.5)
+dense_zone.set_axis_off()
+```
 <!-- 
 After you are done, here are some cosmetic suggestions:
 
